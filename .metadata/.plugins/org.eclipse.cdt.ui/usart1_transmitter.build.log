@@ -1,0 +1,30 @@
+12:51:45 **** Incremental Build of configuration Debug for project usart1_transmitter ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:93:52: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   93 |   HAL_UART_Transmit(&huart1, (uint8_t *)USER_DATA, strlen(USER_DATA), HAL_MAX_DELAY);
+      |                                                    ^~~~~~
+../Core/Src/main.c:93:52: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c:70:10: warning: unused variable 'i' [-Wunused-variable]
+   70 |  uint8_t i;
+      |          ^
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:227:25: error: 'USART_TX_Pin' undeclared (first use in this function); did you mean 'USART_SR_PE'?
+  227 |   GPIO_InitStruct.Pin = USART_TX_Pin|USART_RX_Pin;
+      |                         ^~~~~~~~~~~~
+      |                         USART_SR_PE
+../Core/Src/main.c:227:25: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:227:38: error: 'USART_RX_Pin' undeclared (first use in this function); did you mean 'USART_CR1_PS'?
+  227 |   GPIO_InitStruct.Pin = USART_TX_Pin|USART_RX_Pin;
+      |                                      ^~~~~~~~~~~~
+      |                                      USART_CR1_PS
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+12:51:46 Build Failed. 3 errors, 3 warnings. (took 220ms)
+

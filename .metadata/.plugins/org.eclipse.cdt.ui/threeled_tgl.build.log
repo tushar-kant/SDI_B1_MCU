@@ -1,0 +1,10 @@
+12:51:15 **** Build of configuration Debug for project threeled_tgl ****
+make -j12 all 
+arm-none-eabi-size   threeled_tgl.elf 
+   text	   data	    bss	    dec	    hex	filename
+    944	     12	   1572	   2528	    9e0	threeled_tgl.elf
+Finished building: default.size.stdout
+ 
+
+12:51:15 Build Finished. 0 errors, 0 warnings. (took 216ms)
+

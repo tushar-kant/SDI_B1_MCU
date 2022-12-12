@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;adc_poling&apos;" deleteContents="false" description="Delete resource &apos;adc_poling&apos;" element1="/adc_poling" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1670479188605"/>&#x0A;<refactoring comment="Delete resource &apos;01_ADC/Core/Src/main.c&apos;" deleteContents="false" description="Delete resource &apos;01_ADC/Core/Src/main.c&apos;" element1="/01_ADC/Core/Src/main.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1670648901119"/>
+</session>

@@ -1,0 +1,10 @@
+12:27:26 **** Incremental Build of configuration Debug for project tim_pwm_bz ****
+make -j12 all 
+arm-none-eabi-size   tim_pwm_bz.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10192	     20	   1644	  11856	   2e50	tim_pwm_bz.elf
+Finished building: default.size.stdout
+ 
+
+12:27:27 Build Finished. 0 errors, 0 warnings. (took 217ms)
+

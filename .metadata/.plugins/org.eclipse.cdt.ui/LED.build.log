@@ -1,0 +1,10 @@
+16:14:26 **** Build of configuration Debug for project LED ****
+make -j12 all 
+arm-none-eabi-size   LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10876	    120	   1656	  12652	   316c	LED.elf
+Finished building: default.size.stdout
+ 
+
+16:14:26 Build Finished. 0 errors, 0 warnings. (took 213ms)
+

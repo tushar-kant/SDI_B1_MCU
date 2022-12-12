@@ -1,0 +1,10 @@
+16:14:31 **** Build of configuration Debug for project led_tglch ****
+make -j12 all 
+arm-none-eabi-size   led_tglch.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7784	     20	   1636	   9440	   24e0	led_tglch.elf
+Finished building: default.size.stdout
+ 
+
+16:14:31 Build Finished. 0 errors, 0 warnings. (took 213ms)
+
