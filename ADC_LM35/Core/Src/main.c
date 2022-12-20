@@ -106,7 +106,7 @@ int main(void)
 	  if(HAL_ADC_PollForConversion(&hadc1, 10) == 0)
 	  {
 		  adc_value = HAL_ADC_GetValue(&hadc1);
-		  adc_value = (adc_value*500)/4096;
+		  adc_value = (adc_value*330)/4096;
 		  //adc_value = adc_value/1024;
 	 	  LCD_command(0xC8);
 	 	  //LCD_data((adc_value/1000) + 48);

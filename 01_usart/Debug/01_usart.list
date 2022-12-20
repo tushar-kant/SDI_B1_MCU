@@ -387,7 +387,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_UART_Transmit(&huart1, "hello", 6, 10);
+	  HAL_UART_Transmit(&huart1,"hello",6,10);
  80004f0:	230a      	movs	r3, #10
  80004f2:	2206      	movs	r2, #6
  80004f4:	4904      	ldr	r1, [pc, #16]	; (8000508 <main+0x2c>)
@@ -396,7 +396,7 @@ int main(void)
 	  HAL_Delay(1000);
  80004fc:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000500:	f000 fa78 	bl	80009f4 <HAL_Delay>
-	  HAL_UART_Transmit(&huart1, "hello", 6, 10);
+	  HAL_UART_Transmit(&huart1,"hello",6,10);
  8000504:	e7f4      	b.n	80004f0 <main+0x14>
  8000506:	bf00      	nop
  8000508:	08002ad0 	.word	0x08002ad0
@@ -556,9 +556,9 @@ static void MX_USART1_UART_Init(void)
  80005e8:	4b11      	ldr	r3, [pc, #68]	; (8000630 <MX_USART1_UART_Init+0x4c>)
  80005ea:	4a12      	ldr	r2, [pc, #72]	; (8000634 <MX_USART1_UART_Init+0x50>)
  80005ec:	601a      	str	r2, [r3, #0]
-  huart1.Init.BaudRate = 9600;
+  huart1.Init.BaudRate = 115200;
  80005ee:	4b10      	ldr	r3, [pc, #64]	; (8000630 <MX_USART1_UART_Init+0x4c>)
- 80005f0:	f44f 5216 	mov.w	r2, #9600	; 0x2580
+ 80005f0:	f44f 32e1 	mov.w	r2, #115200	; 0x1c200
  80005f4:	605a      	str	r2, [r3, #4]
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
  80005f6:	4b0e      	ldr	r3, [pc, #56]	; (8000630 <MX_USART1_UART_Init+0x4c>)
