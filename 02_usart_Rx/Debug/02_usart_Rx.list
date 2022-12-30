@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000877c  00000000  00000000  0002003c  2**0
+ 12 .debug_info   0000878c  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000160b  00000000  00000000  000287b8  2**0
+ 13 .debug_abbrev 0000160b  00000000  00000000  000287c8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000006d8  00000000  00000000  00029dc8  2**3
+ 14 .debug_aranges 000006d8  00000000  00000000  00029dd8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000660  00000000  00000000  0002a4a0  2**3
+ 15 .debug_ranges 00000660  00000000  00000000  0002a4b0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000151e0  00000000  00000000  0002ab00  2**0
+ 16 .debug_macro  000151e0  00000000  00000000  0002ab10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000864d  00000000  00000000  0003fce0  2**0
+ 17 .debug_line   0000864d  00000000  00000000  0003fcf0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00084999  00000000  00000000  0004832d  2**0
+ 18 .debug_str    00084999  00000000  00000000  0004833d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000cccc6  2**0
+ 19 .comment      00000050  00000000  00000000  000cccd6  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001b2c  00000000  00000000  000ccd18  2**2
+ 20 .debug_frame  00001b2c  00000000  00000000  000ccd28  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -698,7 +698,7 @@ void delay(int seconds)
 int main(void)
 {
  8000708:	b580      	push	{r7, lr}
- 800070a:	b0b0      	sub	sp, #192	; 0xc0
+ 800070a:	b0aa      	sub	sp, #168	; 0xa8
  800070c:	af00      	add	r7, sp, #0
 
   /* USER CODE BEGIN 1 */
@@ -707,7 +707,7 @@ uint8_t Data_Buffer[100];
 uint8_t i;
 char *USER_DATA="tushar!";
  800070e:	4b3a      	ldr	r3, [pc, #232]	; (80007f8 <main+0xf0>)
- 8000710:	f8c7 30b8 	str.w	r3, [r7, #184]	; 0xb8
+ 8000710:	f8c7 30a0 	str.w	r3, [r7, #160]	; 0xa0
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -732,40 +732,40 @@ char *USER_DATA="tushar!";
   MX_USART2_UART_Init();
  8000720:	f000 f8cc 	bl	80008bc <MX_USART2_UART_Init>
   HAL_UART_Transmit(&huart2, (uint8_t *)USER_DATA, strlen(USER_DATA), HAL_MAX_DELAY);
- 8000724:	f8d7 00b8 	ldr.w	r0, [r7, #184]	; 0xb8
+ 8000724:	f8d7 00a0 	ldr.w	r0, [r7, #160]	; 0xa0
  8000728:	f7ff fd56 	bl	80001d8 <strlen>
  800072c:	4603      	mov	r3, r0
  800072e:	b29a      	uxth	r2, r3
  8000730:	f04f 33ff 	mov.w	r3, #4294967295
- 8000734:	f8d7 10b8 	ldr.w	r1, [r7, #184]	; 0xb8
+ 8000734:	f8d7 10a0 	ldr.w	r1, [r7, #160]	; 0xa0
  8000738:	4830      	ldr	r0, [pc, #192]	; (80007fc <main+0xf4>)
  800073a:	f001 fa70 	bl	8001c1e <HAL_UART_Transmit>
   uint32_t count = 0;
  800073e:	2300      	movs	r3, #0
- 8000740:	f8c7 30bc 	str.w	r3, [r7, #188]	; 0xbc
+ 8000740:	f8c7 30a4 	str.w	r3, [r7, #164]	; 0xa4
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while(1)
 	{
 		HAL_UART_Receive(&huart2, &Rcvd_Data, 1, HAL_MAX_DELAY);    //Read byte by byte
- 8000744:	f107 01b7 	add.w	r1, r7, #183	; 0xb7
+ 8000744:	f107 019f 	add.w	r1, r7, #159	; 0x9f
  8000748:	f04f 33ff 	mov.w	r3, #4294967295
  800074c:	2201      	movs	r2, #1
  800074e:	482b      	ldr	r0, [pc, #172]	; (80007fc <main+0xf4>)
  8000750:	f001 faf7 	bl	8001d42 <HAL_UART_Receive>
 
 		if(Rcvd_Data == '\r')
- 8000754:	f897 30b7 	ldrb.w	r3, [r7, #183]	; 0xb7
+ 8000754:	f897 309f 	ldrb.w	r3, [r7, #159]	; 0x9f
  8000758:	2b0d      	cmp	r3, #13
  800075a:	d11a      	bne.n	8000792 <main+0x8a>
 		{
 			//detect Return/Enter key
 			Data_Buffer[count++] = '\r';
- 800075c:	f8d7 30bc 	ldr.w	r3, [r7, #188]	; 0xbc
+ 800075c:	f8d7 30a4 	ldr.w	r3, [r7, #164]	; 0xa4
  8000760:	1c5a      	adds	r2, r3, #1
- 8000762:	f8c7 20bc 	str.w	r2, [r7, #188]	; 0xbc
- 8000766:	33c0      	adds	r3, #192	; 0xc0
+ 8000762:	f8c7 20a4 	str.w	r2, [r7, #164]	; 0xa4
+ 8000766:	33a8      	adds	r3, #168	; 0xa8
  8000768:	443b      	add	r3, r7
  800076a:	220d      	movs	r2, #13
  800076c:	f803 2c70 	strb.w	r2, [r3, #-112]
@@ -777,9 +777,9 @@ char *USER_DATA="tushar!";
 	}
 
 	HAL_UART_Transmit(&huart2, (uint8_t*)Data_Buffer, count, HAL_MAX_DELAY);
- 8000772:	f8d7 30bc 	ldr.w	r3, [r7, #188]	; 0xbc
+ 8000772:	f8d7 30a4 	ldr.w	r3, [r7, #164]	; 0xa4
  8000776:	b29a      	uxth	r2, r3
- 8000778:	f107 0150 	add.w	r1, r7, #80	; 0x50
+ 8000778:	f107 0138 	add.w	r1, r7, #56	; 0x38
  800077c:	f04f 33ff 	mov.w	r3, #4294967295
  8000780:	481e      	ldr	r0, [pc, #120]	; (80007fc <main+0xf4>)
  8000782:	f001 fa4c 	bl	8001c1e <HAL_UART_Transmit>
@@ -791,11 +791,11 @@ char *USER_DATA="tushar!";
  800078c:	f7ff ff9f 	bl	80006ce <delay>
  8000790:	e00b      	b.n	80007aa <main+0xa2>
 			Data_Buffer[count++] = Rcvd_Data;
- 8000792:	f8d7 30bc 	ldr.w	r3, [r7, #188]	; 0xbc
+ 8000792:	f8d7 30a4 	ldr.w	r3, [r7, #164]	; 0xa4
  8000796:	1c5a      	adds	r2, r3, #1
- 8000798:	f8c7 20bc 	str.w	r2, [r7, #188]	; 0xbc
- 800079c:	f897 20b7 	ldrb.w	r2, [r7, #183]	; 0xb7
- 80007a0:	33c0      	adds	r3, #192	; 0xc0
+ 8000798:	f8c7 20a4 	str.w	r2, [r7, #164]	; 0xa4
+ 800079c:	f897 209f 	ldrb.w	r2, [r7, #159]	; 0x9f
+ 80007a0:	33a8      	adds	r3, #168	; 0xa8
  80007a2:	443b      	add	r3, r7
  80007a4:	f803 2c70 	strb.w	r2, [r3, #-112]
 		HAL_UART_Receive(&huart2, &Rcvd_Data, 1, HAL_MAX_DELAY);    //Read byte by byte
@@ -803,10 +803,10 @@ char *USER_DATA="tushar!";
 
 	while(1)
 	{
-			char str[40], str1[40];
+			char str[40], str1[16];
 			strcpy(str,USER_DATA);
  80007aa:	463b      	mov	r3, r7
- 80007ac:	f8d7 10b8 	ldr.w	r1, [r7, #184]	; 0xb8
+ 80007ac:	f8d7 10a0 	ldr.w	r1, [r7, #160]	; 0xa0
  80007b0:	4618      	mov	r0, r3
  80007b2:	f002 fac9 	bl	8002d48 <strcpy>
 			LCD_string(str);
@@ -823,7 +823,7 @@ char *USER_DATA="tushar!";
  80007c6:	20c0      	movs	r0, #192	; 0xc0
  80007c8:	f7ff ff44 	bl	8000654 <LCD_command>
 			strcpy(str1,Data_Buffer);
- 80007cc:	f107 0250 	add.w	r2, r7, #80	; 0x50
+ 80007cc:	f107 0238 	add.w	r2, r7, #56	; 0x38
  80007d0:	f107 0328 	add.w	r3, r7, #40	; 0x28
  80007d4:	4611      	mov	r1, r2
  80007d6:	4618      	mov	r0, r3

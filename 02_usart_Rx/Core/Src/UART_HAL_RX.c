@@ -147,7 +147,7 @@ char *USER_DATA="tushar!";
 
 	while(1)
 	{
-			char str[40], str1[40];
+			char str[40], str1[16];
 			strcpy(str,USER_DATA);
 			LCD_string(str);
 			delay(500);
